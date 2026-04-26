@@ -1,4 +1,4 @@
-## Live Stream com FFmpeg Windows
+## Stream com FFmpeg Windows e NGINX
 
 O **FFmpeg** é o "canivete suíço" do mundo multimídia. É uma estrutura de código aberto (open-source) que contém uma coleção gigantesca de bibliotecas e ferramentas para processar praticamente qualquer coisa relacionada a áudio, vídeo e imagem.
 
