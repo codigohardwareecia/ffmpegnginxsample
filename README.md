@@ -1,4 +1,5 @@
-###Stream com FFmpeg e NGINX
+## Live Stream com FFmpeg Windows
+
 O **FFmpeg** é o "canivete suíço" do mundo multimídia. É uma estrutura de código aberto (open-source) que contém uma coleção gigantesca de bibliotecas e ferramentas para processar praticamente qualquer coisa relacionada a áudio, vídeo e imagem.
 
 O **Nginx** é um servidor de alto desempenho que funciona como um "diretor de tráfego" na internet. Ele é extremamente leve e rápido, sendo usado principalmente para três funções:
