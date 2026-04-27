@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Include="nginx\**\*.*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="ffmpeg\**\*.*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="FFMpegCore" Version="5.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="nginx\temp\client_body_temp\" />
+	  <Folder Include="nginx\temp\fastcgi_temp\" />
+	  <Folder Include="nginx\temp\hls\" />
+	  <Folder Include="nginx\temp\proxy_temp\" />
+	  <Folder Include="nginx\temp\recordings\" />
+	  <Folder Include="nginx\temp\scgi_temp\" />
+	  <Folder Include="nginx\temp\uwsgi_temp\" />
+	</ItemGroup>
+	<Target Name="MakeNginxTempFolder" AfterTargets="Build">
+		<MakeDir Directories="$(OutputPath)nginx\temp\hls" />
+		<MakeDir Directories="$(OutputPath)nginx\temp\recordings" />
+		<MakeDir Directories="$(OutputPath)nginx\logs" />
+	</Target>
+</Project>

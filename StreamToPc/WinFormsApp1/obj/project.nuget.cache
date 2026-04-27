@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "YH3uqXBWny0=",
+  "success": true,
+  "projectFilePath": "D:\\Storage\\Canal Youtube\\Código, Hardware e Cia\\Futuros\\29 - Conhecendo ferramentas de multimidia\\New folder\\StreamToPc\\WinFormsApp1\\WinFormsApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\principal\\.nuget\\packages\\ffmpegcore\\5.4.0\\ffmpegcore.5.4.0.nupkg.sha512",
+    "C:\\Users\\principal\\.nuget\\packages\\instances\\3.0.2\\instances.3.0.2.nupkg.sha512",
+    "C:\\Users\\principal\\.nuget\\packages\\system.io.pipelines\\9.0.10\\system.io.pipelines.9.0.10.nupkg.sha512",
+    "C:\\Users\\principal\\.nuget\\packages\\system.text.encodings.web\\9.0.10\\system.text.encodings.web.9.0.10.nupkg.sha512",
+    "C:\\Users\\principal\\.nuget\\packages\\system.text.json\\9.0.10\\system.text.json.9.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

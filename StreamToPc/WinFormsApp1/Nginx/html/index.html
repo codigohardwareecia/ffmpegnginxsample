@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <video id="video" controls style="width: 100%;"></video>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+   var video = document.getElementById('video');
+
+   if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { /* Safari / iOS */
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE11 / Edge antigo */
+        video.msRequestFullscreen();
+    }
+    
+  var videoSrc = '/hls/stream.m3u8'; 
+
+  if (Hls.isSupported()) {
+    // Para Android/Chrome
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      video.play();
+    });
+  } 
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Para iOS/Safari Nativo
+    video.src = videoSrc;
+    video.addEventListener('loadedmetadata', function() {
+      video.play();
+    });
+  }
+  </script>
+</body>
+</html>
