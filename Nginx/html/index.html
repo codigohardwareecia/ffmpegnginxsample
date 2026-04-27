@@ -1,29 +1,37 @@
-<!DOCTYPE html>
 <html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
-</head>
 <body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
+  <video id="video" controls style="width: 100%;"></video>
 
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
-Windows documentation and support is available at
-<a href="http://nginx-win.ecsds.eu/">nginx for Windows</a>.<br/>
-Windows commercial support is available at
-<a href="mailto:support@ecsystems.nl">ITProjectPartner</a>.</p>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+   var video = document.getElementById('video');
 
-<p><em>Thank you for using nginx.</em></p>
+   if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { /* Safari / iOS */
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE11 / Edge antigo */
+        video.msRequestFullscreen();
+    }
+    
+  var videoSrc = '/hls/stream.m3u8'; 
+
+  if (Hls.isSupported()) {
+    // Para Android/Chrome
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      video.play();
+    });
+  } 
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Para iOS/Safari Nativo
+    video.src = videoSrc;
+    video.addEventListener('loadedmetadata', function() {
+      video.play();
+    });
+  }
+  </script>
 </body>
 </html>
